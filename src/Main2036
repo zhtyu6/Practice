@@ -1,0 +1,30 @@
+//这道题学到了一个多边形的面积公式
+//area += (a[i] * b[t] - a[t] * b[i])/2.0
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner kb = new Scanner(System.in);
+        while (kb.hasNext()) {
+            int n = kb.nextInt();
+            if (n == 0) {
+                System.exit(0);
+            }
+            long[] a = new long[n];
+            long[] b = new long[n];
+            for (int i = 0; i < n; i++) {
+                a[i] = kb.nextLong();
+                b[i] = kb.nextLong();
+            }
+            double area = 0;
+            for (int i = 0; i < n; i++) {
+                int t = i + 1;
+                if (t == n) {
+                    t = 0;
+                }
+                area += (a[i] * b[t] - a[t] * b[i])/2.0;
+            }
+            System.out.println(Math.abs(area));
+        }
+    }
+}
