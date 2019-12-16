@@ -1,0 +1,24 @@
+//这道题应该注意break结束的地方
+import java.util.Scanner;
+
+public class Main1860 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	while(sc.hasNext()) {
+		String a=sc.nextLine();
+		if(a.equals("#")) {break;}
+		char []b=a.toCharArray();
+		String A=sc.nextLine();
+		char[]B=A.toCharArray();
+		for (int i = 0; i < b.length; i++) {
+			int k=0;
+			for (int j = 0; j < B.length; j++) {
+				if(b[i]==B[j]) {
+					k++;
+				}
+			}
+			System.out.println(b[i]+" "+k);
+		}
+	}
+}
+}
