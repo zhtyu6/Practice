@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Main1014 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int s=0;
+	while(sc.hasNext()) {
+		if(s!=0) {
+			System.out.println();
+		}s++;
+		int STEP=sc.nextInt();
+		int MOD=sc.nextInt();
+		int STEP1=STEP;
+		int MOD1=MOD;
+		int k=0;
+		for(int i=1;i<MOD;i++) {
+			if(STEP%i==0) {
+				if(MOD%i==0) {
+					k++;
+				}
+			}
+		}
+		int i=1;
+		for(;STEP>10;i++) {
+			STEP=STEP/10;
+		}
+		int i1=1;
+		for(;MOD>10;i1++) {
+			MOD=MOD/10;
+		}
+		int m[]=new int [10];
+		for(int j=0;j<10-i;j++) {
+			System.out.print(" ");
+		}
+		for(int j=i;j<i+1;j++) {
+			System.out.print(STEP1);
+		}
+		int m1[]=new int [10];
+		for(int j=0;j<10-i1;j++) {
+			System.out.print(" ");
+		}
+		for(int j=i1-1;j<i1;j++) {
+			System.out.print(MOD1);
+		}
+			
+		if(k==1) {
+			System.out.println("    Good Choice");
+		}else {
+			System.out.println("    Bad Choice");
+		}
+	}
+}
+}
