@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main1034 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			int n = sc.nextInt();
+			int M[] = new int[n];
+			int k = 0, b = 0;
+			for (int i = 0; i < n; i++) {
+				M[i] = sc.nextInt();
+			}
+			keep: for (int j = 1;; j++) {
+				k = j;
+				int g = 0;
+				for (int i = n - 1; i > 0; i--) {
+					
+					if (i == n - 1) {
+						int c = M[0] / 2;
+						M[n - 1] += c;
+						M[0] = M[0] - c;
+					}
+					for (int s = 0; s < n; s++) {
+						if (M[s] % 2 != 0) {
+							M[s]++;
+						}
+					}
+					////////////////// 2 - n
+					int c = M[i] / 2;
+					M[i - 1] += c;
+					M[i] = M[i] - c;
+					System.out.print(i + "------");
+				}
+				System.out.println();
+				for (int i = 0; i < n; i++) {
+					System.out.println(M[i]);
+				}
+				for (int i = 0; i < n - 1; i++) {
+					if (M[i] == M[i + 1]) {
+						g++;
+					}
+					if (g == n - 1) {
+						b = M[0];
+						System.out.println(k + " " + M[0]);
+						break keep;
+					}
+				}
+
+			}
+		}
+	}
+}
