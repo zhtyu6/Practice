@@ -1,0 +1,47 @@
+//利用了修飾這模式，可以将汉字，数字转化为字符串
+import java.util.Scanner;
+
+public class Main2097 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			int n = sc.nextInt();
+			if(n==0) {break;}
+			String a = Integer.toString(n, 16);
+			String b = Integer.toString(n, 12);
+			String valueOf = String.valueOf(n);
+			char a0[] = valueOf.toCharArray();
+			String valueOf1 = String.valueOf(a);
+			char a1[] = valueOf1.toCharArray();
+			String valueOf2 = String.valueOf(b);
+			char a2[] = valueOf2.toCharArray();
+			int sum0=0;
+			int sum1 = 0;
+			int sum2=0;
+			for (int i = 0; i < a0.length; i++) {
+				sum0+=a0[i]-48;
+			}
+			for (int i = 0; i < a1.length; i++) {
+				if (a1[i] >= 'a' && a1[i] <= 'z') {
+					sum1 += a1[i] - 87;
+				}else{
+					sum1+=a1[i]-48;
+				}
+			}
+			for (int i = 0; i < a2.length; i++) {
+				if (a2[i] >= 'a' && a2[i] <= 'z') {
+					sum2 += a2[i] - 87;
+				}else{
+					sum2+=a2[i]-48;
+				}
+			}
+			if(sum0==sum1&&sum0==sum2) {
+				System.out.println(n+" is a Sky Number.");
+			}else {
+				System.out.println(n+" is not a Sky Number." );
+			}
+		}
+	}
+
+}
