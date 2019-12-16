@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main1017 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int x=sc.nextInt();
+	while(x>0) {
+		int g=0;
+	while(sc.hasNext()) {
+		g++;
+		int k=0;
+		int n=sc.nextInt();
+		int m=sc.nextInt();
+		if(m==0&&n==0) {break;}
+		for(double a=1;a<n-1;a++) {
+			for(double b=a+1;b<n;b++) {
+				double c=(a*a+b*b+m)/(a*b);
+				if(c%1==0) {
+				k++;	
+				}
+			}
+		}
+		int k1=k;
+		System.out.println("Case "+g+": "+k1);
+		
+	}
+	if(x!=1)
+		System.out.println();
+	x--;
+}
+}
+
+}
