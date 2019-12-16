@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class Main1720 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		while(sc.hasNext()) {
+			int a=sc.nextInt(16);
+			int b=sc.nextInt(16);
+			System.out.println(a+b);
+		}
+	}
+}
