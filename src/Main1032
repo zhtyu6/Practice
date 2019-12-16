@@ -1,0 +1,43 @@
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main1032 {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()) {
+            int a=sc.nextInt();
+            int b=sc.nextInt();
+            int c=0;
+            int p=0;
+            if(a>b) {
+                c=b;
+                p=a;
+            }else {
+                c=a;
+                p=b;
+            }
+            int d[]=new int[p-c+1];
+            int k=c;            
+                for(int j=c;j<=p;j++) {
+                    k=j;
+                    for(int y=1;y>0;y++) {
+                if(k==1) {
+                    d[j-c]=y;
+                    break;
+                }
+                if(k%2!=0) {
+                    k=k*3+1;
+                }else {
+                    k=k/2;
+                }
+                    }}
+                Arrays.sort(d);
+                System.out.println(a+" "+b+" "+d[p-c]);
+        }
+
+    }
+
+}
