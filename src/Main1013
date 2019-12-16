@@ -1,0 +1,23 @@
+//初步掌握了BigInteger的用法
+import java.math.BigInteger;
+
+import java.util.Scanner;
+
+public class Main1013 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			BigInteger n = sc.nextBigInteger();
+			if (n.equals(BigInteger.ZERO)) {
+				break;
+			}
+			int sum=0;
+			while(n.compareTo(new BigInteger("10"))>=0) {
+				BigInteger mod = n.remainder(new BigInteger("10"));//remainder用于求余
+				n = n.divide(new BigInteger("10"));//除法
+				n = n.add(mod);//加法
+			}
+			System.out.println(n);
+		}
+	}
+}
