@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+public class Main1031 {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	while(sc.hasNext()) {
+		int n=sc.nextInt();
+		int m=sc.nextInt();
+		int k=sc.nextInt();
+		double [][] sum1=new double [n][m];//记录每个人的评分
+		double []sum2=new double [m];//记录每个分数
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				sum1[i][j]=sc.nextDouble();
+			}
+		}
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				sum2[j]+=sum1[i][j];
+			}
+		}
+		double []sum3=new double [k];//取k个最大值
+		for(int i=0;i<k;i++) {
+			int g=0;
+			double max=sum2[0];
+			for(int j=0;j<m;j++) {
+				if(max<sum2[j]) {
+					max=sum2[j];
+					g=j;
+				}
+			}
+			sum3[i]=max;
+			sum2[g]=-1;
+		}
+		for(int i=0;i<m;i++) {
+			sum2[i]=0;
+		}
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				sum2[j]+=sum1[i][j];
+			}
+		}
+
+		int g=0;
+		int c=0;
+		int g1=0;
+		int f=0;
+		for(int i=m-1;i>=0;i--) {
+			if(i>1&&sum2[i]==sum2[i-1]) {
+				c++;
+				g1=i;
+				f++;
+			}else if(c!=0) {
+				int K=0;
+				for(int j=0;j<=c;j++) {
+					if(K==0) {
+						System.out.print(g1);
+						g++;
+						K++;
+					}else {
+						System.out.print(" "+(g1-1));
+						g++;
+					}
+				}
+				c=0;
+			}else if(sum2[i]>=sum3[k-1]&&g<=k&&c==0&&g+c!=k) {
+				if(g==0&&f==0) {
+				System.out.print(i+1);
+				g++;
+				}else {
+					int z=i+1;
+					System.out.print(" "+ z);
+				g++;
+				}
+			}
+		}System.out.println();
+	}
+}
+}
