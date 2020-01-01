@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main2734 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		while (scan.hasNextLine()) {
+			String str = scan.nextLine();
+			if (str.equals("#"))
+				break;
+			char[] ch = str.toCharArray();
+			int sum=0;
+			for(int i=0;i<ch.length;i++){
+				if(ch[i]==' ')
+					continue;
+				sum+=(ch[i]-'A'+1)*(i+1);
+			}
+			System.out.println(sum);
+		}
+	}
+
+}
